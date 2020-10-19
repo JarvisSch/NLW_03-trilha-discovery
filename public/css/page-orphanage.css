@@ -127,6 +127,8 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
+
+    line-height: 1.5
 }
 
 .open-details div {
@@ -148,10 +150,20 @@ main {
 }
 
 .open-details .open-on-weekends {
-    background: linear-gradient(149.97deg, #E6F7FB 8.13%, #FFFFFF 92.67%);
+    border-radius: 20px;
+   
+}
+
+.open-on-weekends.open {
+    background: linear-gradient(154.16deg, #E6F7FB 8.13%, #FFFFFF 92.67%);
     border: 1px solid #B3DAE2;
     box-sizing: border-box;
-    border-radius: 20px;
     color: #37C77F;
 }
 
+.open-on-weekends.closed {
+    background: linear-gradient(154.16deg, #FCF0F4 8.13%, #FFFFFF 92.67%);
+    border: 1px solid #FFBCD4;
+    box-sizing: border-box;
+    color: #FF669D;
+}

@@ -1,20 +1,31 @@
+//importar dependencias
 const express = require('express');
 const path = require('path');
 const pages = require('./pages.js');
+const hbs = require('hbs')
 
-const server = express()
-server
+//iniciando express
+const server = express();
 
-    .use(express.static('public'))
+//utilizar body do request
+server.use(express.urlencoded({extended: true}))
 
-    .set('views', path.join(__dirname, 'views'))
-    .set('view engine', 'hbs')
+//utilizando arquivos estaticos
+server.use(express.static('public'))
 
-    .get('/', pages.index)
-    .get('/orphanage', pages.orphanage)
-    .get('/orphanages', pages.orphanages)
-    .get('/create-orphanage', pages.createOrphanage)
-    
+//configurar template views
+server.set('views',path.join(__dirname, "views"))
+server.set('view engine','hbs')
 
+//
+hbs.registerPartials(path.join(path.join(__dirname, "views"),"partials"));
+
+//criar uma rota
+server.get('/', pages.index )
+server.get('/orphanage', pages.orphanage )
+server.get('/orphanages', pages.orphanages )
+server.get('/create-orphanage', pages.createOrphanage )
+server.post('/save-orphanage', pages.saveOrphanage )
+
+//ligar o servidor
 server.listen(5500);
- 
