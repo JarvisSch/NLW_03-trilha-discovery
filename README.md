@@ -1,4 +1,5 @@
-<h1 align="center">
+<h1 align="center"
+background="0,0,0">
     <img src="public/images/logo.svg">
 </h1>
 
